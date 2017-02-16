@@ -1,0 +1,69 @@
+<html>
+  <head>
+    <title>
+      Tabindex
+    </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div style="padding: 50px;">
+      <h1>Basic Web Accessibility - Tabindex</h1>
+      <hr />
+      <nav style="padding-bottom: 35px;">
+        ||
+        <a style="padding-left: 10px; padding-right: 10px;" href="index.html">Broken Anchor</a> ||
+        <a style="padding-left: 10px; padding-right: 10px;" href="a-fixed.html">Accessible Anchor</a> ||
+        <a style="padding-left: 10px; padding-right: 10px;" href="input-broken.html">Broken Inputs</a> ||
+        <a style="padding-left: 10px; padding-right: 10px;" href="input-fixed.html">Accessible Inputs</a> ||
+        <a style="padding-left: 10px; padding-right: 10px;" href="button-broken.html">Broken Button </a> ||
+        <a style="padding-left: 10px; padding-right: 10px;" href="button-fixed.html">Accessible Button</a> ||
+        <a style="padding-left: 10px; padding-right: 10px; background-color: #e1d3c1;" href="tabindex.html">Tabindex</a> ||
+      </nav>
+      <button class="btn btn-primary" style="margin-bottom: 35px;" type="button" tabindex="1">A button</button>
+      <button id="button" class="btn btn-primary" style="margin-bottom: 35px;" type="button" tabindex="5">CLICK ME</button>
+      <button class="btn btn-primary" style="margin-bottom: 35px;" type="button" tabindex="2">Another button</button>
+      <button class="btn btn-primary" style="margin-bottom: 35px;" type="button" tabindex="4">What is happening?</button>
+      <button class="btn btn-primary" style="margin-bottom: 35px;" type="button" tabindex="3">Another button</button>
+      <div id="message" style="padding-bottom: 35px;">
+        <div id="heading" style="display: none;">
+          <h2>That was weird, wasn't it?</h2>
+          <em>
+            <code>tabindex</code> is an interesting attribute. It can be applied to any HTML element (but really shouldn't) in order to allow that element to be focusable and to be able<br />
+            to participate in sequential keyboard navigation. <code>tabindex</code> comes in a few flavors per the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex" target="_blank">MDN</a>:
+            <ul style="margin:10px;">
+              <li style="padding:5px;">
+                <code>tabindex="0"</code> - this element is focusable and reachable via sequential keyboard navigation, but its relative order is defined by DOM and whatever else is focusable around it.
+              </li>
+              <li style="padding:5px;">
+                <code>tabindex="1", tabindex="2", tabindex="3", etc...</code> - this element is focusable and reachable via sequential keyboard navigation, but its relative order is defined by the increasing order of <code>tabindex</code> values.
+              </li>
+              <li style="padding:5px;">
+                <code>tabindex="-1"</code> - this element is focusable but <strong>NOT</strong> reachable via sequential keyboard navigation. This is primarily used when you need to have a non-standard element be focusable for the purposes of Javascript.
+              </li>
+            </ul>
+            There are a handful of HTML attributes which natively have a <code>tabindex</code> of <code>0</code>. They include: <code>button</code>, <code>a</code>, <code>input</code>, <code>option</code>, <code>select</code> and <code>textarea</code>.<br />
+            Generally speaking, this is all you should ever need. There are some circumstances where using <code>tabindex="-1"</code> or even <code>tabindex="0"</code> MIGHT be</br />
+            warrented, but rarely, and there's pretty much never a good reason to use <code>tabindex="positive integer"</code>. So if you find yourself doing it, stop and think.<br />
+            Do you really want disrupt the actual flow of the DOM?
+          </em>
+        </div>
+      </div>
+      <xmp id="code" style="display: none;">
+        <button class="btn btn-primary" style="margin-bottom: 35px;" type="button" tabindex="1">A button</button>
+        <button id="button" class="btn btn-primary" style="margin-bottom: 35px;" type="button" tabindex="5">CLICK ME</button>
+        <button class="btn btn-primary" style="margin-bottom: 35px;" type="button" tabindex="2">Another button</button>
+        <button class="btn btn-primary" style="margin-bottom: 35px;" type="button" tabindex="4">What is happening?</button>
+        <button class="btn btn-primary" style="margin-bottom: 35px;" type="button" tabindex="3">Another button</button>
+      </xmp>
+      <footer id="footer" style="padding-top: 80px; font-size=8px;">Copyright © 2017 <a href="#">Radicalsauce Labs</a></footer>
+    </div>
+    <script>
+      $('#button').on('click', function() {
+        $('#heading').toggle(this.display);
+        $('#code').toggle(this.display);
+      });
+    </script>
+  </body>
+</html>
