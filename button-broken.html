@@ -21,8 +21,14 @@
         <a style="padding-left: 10px; padding-right: 10px;" href="button-fixed.html">Accessible Button</a> ||
       </nav>
       <span id="button" class="btn btn-primary" style="margin-bottom: 35px;">Presumably a Button</span>
-      <div id="message" style="padding-bottom: 35px; height: 50px; display: block;">
-        <h2 style="display: none;">That was actually not a button!</h2>
+      <div id="message" style="padding-bottom: 35px;">
+        <div id="heading" style="display: none;">
+          <h2>That was actually not a button!</h2>
+          <em>
+            This is a <code>span</code> tag with a button style class and a jQuery event click handler attached to it. It will work exactly as expected</br />
+            for a mouse user who clicks it, but if you need to access it from a keyboard and you'll never get there.
+          </em>
+        </div>
       </div>
       <xmp id="code" style="display: none;">
         <span id="button" class="btn btn-primary" style="margin-bottom: 35px;">
@@ -33,7 +39,7 @@
     </div>
     <script>
       $('#button').on('click', function() {
-        $('h2').toggle(this.display);
+        $('#heading').toggle(this.display);
         $('#code').toggle(this.display);
       });
     </script>

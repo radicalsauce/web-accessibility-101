@@ -21,19 +21,29 @@
         <a style="padding-left: 10px; padding-right: 10px;" href="button-fixed.html">Accessible Button</a> ||
       </nav>
       <a id="link" style="margin-bottom: 35px;">This is a link...</a>
-      <div id="message" style="padding-bottom: 35px; height: 50px; display: block;">
-        <h2 style="display: none;">...without an href!</h2>
+      <div id="message" style="padding-bottom: 35px;">
+        <div id="heading" style="display: none;">
+          <h2>...without an href!</h2>
+          <em>
+            If you create an <code>anchor</code> element without an <code>href</code> your link will render and look correct. It will even behave correctly if you attach JS event listeners to it.<br />
+            However, this is invalid HTML and without an <code>href</code> property, the <code>anchor</code> loses its <code>tabindex</code> and can no longer be discovered via keyboard.
+          </em>
+        </div>
       </div>
       <xmp id="code" style="display: none;">
         <a id="link" style="margin-bottom: 35px;">
           This is a link...
         </a>
       </xmp>
-      <footer id="footer" style="padding-top: 80px; font-size=8px;">Copyright © 2017 <a href="#">Radicalsauce Labs</a></footer>
+      <footer id="footer" style="padding-top: 80px; font-size=8px;">
+        Copyright © 2017 <a href="#">Radicalsauce Labs</a>
+        <p>Tabindex, alt text...</p>
+      </footer>
+
     </div>
     <script>
       $('#link').on('click', function() {
-        $('h2').toggle(this.display);
+        $('#heading').toggle(this.display);
         $('#code').toggle(this.display);
       });
     </script>

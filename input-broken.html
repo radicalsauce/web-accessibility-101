@@ -28,9 +28,21 @@
         <label for="input2" style="padding-right: 10px;">Enter Email<span style="color:red;">*</span></label>
         <input id="input2" type="text"></input>
       </p>
-      <div id="message" style="padding-bottom: 35px; height: 50px; display: block;">
-        <h2 id="heading1" style="display: none;">No connection between label and input</h2>
-        <h2 id="heading2" style="display: none;">Input field is not actually required</h2>
+      <div id="message" style="padding-bottom: 35px;">
+        <div id="heading1" style="display: none;">
+          <h2>No connection between label and input</h2>
+          <em>
+            Without an association between a label (<code>"label for='someInput'</code>) and an input field (<code>"id='someInput'</code>), there is no way for<br />
+            a screenreader to know which label goes with which input and it will simply read back, "edit text" without any other context.
+          </em>
+        </div>
+        <div id="heading2" style="display: none;">
+          <h2>Input field is not actually required</h2>
+          <em>
+            This input field has its <code>label</code>/<code>input</code> association correctly set up, but it doesn't actually tell the screenreader user that the field is required in order</br />
+            to proceed. It, instead, relies solely on an asterisk to convey with information, which is not something a blind person is going to be able to see.
+          </em>
+        </div>
       </div>
       <xmp id="code1" style="display: none;">
         <label style="padding-right: 10px;">
