@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div style="padding: 50px;">
+      <h1>Basic Web Accessibility - Broken Anchor</h1>
+      <hr />
+      <nav style="padding-bottom: 35px;">
+        ||
+        <a style="padding-left: 10px; padding-right: 10px; background-color: #e1d3c1;" href="a-broken.html">Broken Anchor</a> ||
+        <a style="padding-left: 10px; padding-right: 10px;" href="a-fixed.html">Accessible Anchor</a> ||
+        <a style="padding-left: 10px; padding-right: 10px;" href="input-broken.html">Broken Inputs</a> ||
+        <a style="padding-left: 10px; padding-right: 10px;" href="input-fixed.html">Accessible Inputs</a> ||
+        <a style="padding-left: 10px; padding-right: 10px;" href="button-broken.html">Broken Button </a> ||
+        <a style="padding-left: 10px; padding-right: 10px;" href="button-fixed.html">Accessible Button</a> ||
+      </nav>
+      <a id="link" style="margin-bottom: 35px;">This is a link...</a>
+      <div id="message" style="padding-bottom: 35px; height: 50px; display: block;">
+        <h2 style="display: none;">...without an href!</h2>
+      </div>
+      <xmp id="code" style="display: none;">
+        <a id="link" style="margin-bottom: 35px;">
+          This is a link...
+        </a>
+      </xmp>
+      <footer id="footer" style="padding-top: 80px; font-size=8px;">Copyright © 2017 <a href="#">Radicalsauce Labs</a></footer>
+    </div>
+    <script>
+      $('#link').on('click', function() {
+        $('h2').toggle(this.display)
+        $('#code').toggle(this.display);
+      });
+    </script>
+  </body>
+</html>
