@@ -15,7 +15,7 @@
         <a style="padding-left: 10px; padding-right: 10px;" href="input-broken.html">Broken Inputs</a> ||
         <a style="padding-left: 10px; padding-right: 10px;" href="input-fixed.html">Accessible Inputs</a> ||
         <a style="padding-left: 10px; padding-right: 10px;" href="button-broken.html">Broken Button </a> ||
-        <a style="padding-left: 10px; padding-right: 10px; background-color: #e1d3c1" href="button-fixed.html">Accessible Button</a> ||
+        <a style="padding-left: 10px; padding-right: 10px; background-color: #e1d3c1;" href="button-fixed.html">Accessible Button</a> ||
       </nav>
       <button id="button" class="btn btn-primary" style="margin-bottom: 35px;" type="button">Actually a Button</button>
       <div id="message" style="padding-bottom: 35px; height: 50px; display: block;">
@@ -30,7 +30,7 @@
     </div>
     <script>
       $('#button').on('click', function() {
-        $('h2').toggle(this.display)
+        $('h2').toggle(this.display);
         $('#code').toggle(this.display);
       });
     </script>
